@@ -1,0 +1,218 @@
+/* Lumiterra Fortune Teller Styles */
+:root {
+    --primary-orange: #ff7b00;
+    --dark-bg: #1a1a1a;
+    --gold-highlight: #ffd700;
+    --card-bg: #2d2d2d;
+    --text-light: #ffffff;
+    --text-muted: #cccccc;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-light);
+    padding: 20px;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary-orange), var(--gold-highlight));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(255, 123, 0, 0.3);
+}
+
+.subtext {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.fortune-button {
+    background: linear-gradient(45deg, var(--primary-orange), #ff5500);
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 123, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.fortune-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 123, 0, 0.4);
+}
+
+.fortune-button:active {
+    transform: translateY(0);
+}
+
+.fortune-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.fortune-button:hover::before {
+    left: 100%;
+}
+
+.fortune-card {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-orange);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.fortune-text {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    text-align: center;
+    margin: 0;
+}
+
+.fortune-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--gold-highlight);
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.footer-text {
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--primary-orange);
+    white-space: nowrap;
+    animation: typewriter 2s steps(40) 1s 1 normal both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtext {
+        font-size: 1.1rem;
+    }
+    
+    .fortune-button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .fortune-text {
+        font-size: 1.2rem;
+    }
+    
+    .fortune-card {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtext {
+        font-size: 1rem;
+    }
+    
+    .fortune-button {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+    }
+    
+    .fortune-text {
+        font-size: 1.1rem;
+    }
+    
+    body {
+        padding: 15px;
+    }
+}
+
+/* Loading animation */
+.loading-dots {
+    display: inline-block;
+    animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        content: ".";
+    }
+    40% {
+        content: "..";
+    }
+    60% {
+        content: "...";
+    }
+    80%, 100% {
+        content: "";
+    }
+}
